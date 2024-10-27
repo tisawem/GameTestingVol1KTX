@@ -10,22 +10,21 @@ import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.Sprite
-import com.badlogic.gdx.graphics.g2d.freetype.FreetypeFontLoader
-import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.utils.ScreenUtils
 import ktx.app.KtxGame
 import ktx.app.KtxScreen
 
 class 启动页面(override val game: KtxGame<KtxScreen>) : 该项目通用的屏幕() {
-    override val 视口宽度高度 = Vector2(800f, 600f)
 
+    override val 视口高: Float
+        get() = 600f
     private val ktxLogo = Sprite(Texture("logo.png")).apply {
         setScale(0.75f)
-        setPosition((视口宽度高度.x - width) / 2, (视口宽度高度.y - height) / 2)
+        setPosition((视口宽 - width) / 2, (视口高 - height) / 2)
 
     }
     private val 启动界面 = Sprite(Texture("背景/启动界面.png")).apply {
-        setSize(视口宽度高度.x, 视口宽度高度.y)
+        setSize(视口宽, 视口高)
 
 
     }
@@ -63,7 +62,6 @@ class 启动页面(override val game: KtxGame<KtxScreen>) : 该项目通用的�
         load("人物/灵梦/左移/灵梦0004.png", Texture::class.java)
         load("人物/灵梦/左移/灵梦0005.png", Texture::class.java)
 
-        load("SourceHanSerifSC-Light.otf", FreetypeFontLoader::class.java)
     }
 
     init {
@@ -73,7 +71,7 @@ class 启动页面(override val game: KtxGame<KtxScreen>) : 该项目通用的�
                     Gdx.input.inputProcessor = null
                     dispose()
 
-                    更换屏幕并删除上一个屏幕(this@启动页面, MainMenu(game, 全局素材管理器))
+                    replaceScreen(this@启动页面, MainMenu(game, 全局素材管理器))
                 }
                 return true
             }

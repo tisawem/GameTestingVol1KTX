@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter
-import com.badlogic.gdx.math.Vector2
+import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.viewport.FitViewport
 import ktx.app.KtxGame
 import ktx.app.KtxScreen
@@ -20,14 +20,19 @@ abstract class 该项目通用的屏幕 : KtxScreen {
     abstract val game: KtxGame<KtxScreen>
     abstract val 全局素材管理器: AssetManager
 
-    open val 屏幕分辨率 = Vector2(800f, 600f)
-    abstract val 视口宽度高度: Vector2
+    open val 屏幕分辨率_X = 800f
+    open val 屏幕分辨率_Y = 600f
 
-    open val 正交相机: OrthographicCamera by lazy { OrthographicCamera().apply { center() } }
+    open val 视口宽 = 800f
+    open val 视口高 = 600f
+
+    open val 正交相机: OrthographicCamera = OrthographicCamera().apply { center() }
 
     open val 视口 by lazy {
-        FitViewport(视口宽度高度.x, 视口宽度高度.y, 正交相机)
+        FitViewport(视口宽, 视口高, 正交相机)
     }
+
+
     open val batch by lazy {
         SpriteBatch().apply {
             projectionMatrix = 正交相机.combined
@@ -35,11 +40,25 @@ abstract class 该项目通用的屏幕 : KtxScreen {
     }
 
 
-    override fun dispose() {
-        batch.dispose()
+    open val stage by lazy {
+        Stage(视口, batch)
+            .let {
+                Gdx.input.inputProcessor = it
+                it
+            }
+
     }
 
-    inline fun <reified T : KtxScreen, reified U : KtxScreen> 更换屏幕并删除上一个屏幕(本屏幕: T, 下一个屏幕: U) {
+    override fun resize(width: Int, height: Int) {
+        视口.update(width, height)
+    }
+
+    override fun dispose() {
+        batch.dispose()
+        stage.dispose()
+    }
+
+    inline fun <reified T : KtxScreen, reified U : KtxScreen> replaceScreen(本屏幕: T, 下一个屏幕: U) {
 
         game.removeScreen<T>()
         game.addScreen(下一个屏幕)
@@ -51,7 +70,7 @@ abstract class 该项目通用的屏幕 : KtxScreen {
 
 /**
  * 程序抛出错误的时候，显示的屏幕
- * 使用思源宋体
+ *
  * @param 报错内容 报错内容，每32个字符自动换行
  */
 class errorScreen(val 报错内容: String) : KtxScreen {
@@ -63,7 +82,7 @@ class errorScreen(val 报错内容: String) : KtxScreen {
     var parameter = FreeTypeFontParameter().apply {
         characters = 报错内容 + "Sorry, this game cannot continue running.\nyou can close this application."
         size = 24
-        borderColor = Color.TAN;
+        borderColor = Color.BROWN
         borderWidth = 1f
     }
 
