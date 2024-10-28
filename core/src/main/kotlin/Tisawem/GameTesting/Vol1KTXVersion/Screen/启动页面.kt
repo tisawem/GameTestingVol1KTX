@@ -61,7 +61,7 @@ class 启动页面(override val game: KtxGame<KtxScreen>) : 该项目通用的�
         load("人物/灵梦/左移/灵梦0003.png", Texture::class.java)
         load("人物/灵梦/左移/灵梦0004.png", Texture::class.java)
         load("人物/灵梦/左移/灵梦0005.png", Texture::class.java)
-
+        load("人物/灵梦/左移/灵梦00015.png", Texture::class.java)
     }
 
     init {

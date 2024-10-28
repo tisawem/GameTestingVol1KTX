@@ -9,13 +9,11 @@ class Main : KtxGame<KtxScreen>() {
     override fun create() {
 
 
-        try {
+
             addScreen(启动页面(this))
             setScreen<启动页面>()
-        } catch (e: Throwable) {
-            addScreen(errorScreen(e.message + ""))
-            setScreen<errorScreen>()
-        }
+
+
     }
 }
 
