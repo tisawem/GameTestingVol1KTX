@@ -2,6 +2,7 @@ package Tisawem.GameTesting.Vol1KTXVersion.lwjgl3
 
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.BitmapFont
@@ -22,12 +23,12 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport
  * @param 报错内容 报错内容
  */
 class ErrorScreen(val 报错内容: String) : ApplicationAdapter() {
-    private lateinit var errorLabel: Label
+
     private lateinit var backgroundImage: Texture
     private lateinit var generator: FreeTypeFontGenerator
     private lateinit var font: BitmapFont
     private lateinit var batch: SpriteBatch
-
+    private lateinit var music: Music
 
     private lateinit var label: Label
     private lateinit var viewport: ScreenViewport
@@ -63,6 +64,9 @@ class ErrorScreen(val 报错内容: String) : ApplicationAdapter() {
             addActor(label)
         }
 
+        music = Gdx.audio.newMusic(Gdx.files.internal("音乐/error.mp3")).apply {
+            play()
+        }
     }
 
     override fun render() {
@@ -85,6 +89,6 @@ class ErrorScreen(val 报错内容: String) : ApplicationAdapter() {
         batch.dispose()
         font.dispose()
         generator.dispose()
-
+        music.dispose()
     }
 }

@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * <p>Bilibili UID:394047428 这个UP主创建了“动站”，远离鱼目混珠，良莠不齐的兽圈，致力于打造洁净的拟动物的圈子</p>
  * <p>这个注解的诞生，理由类似。</p>
  * <p>添加了这个注解，就宣誓自己是一个高贵的程序员，</p>
- * <p>远离那些自以为是，不听劝，愚钝之巅的初学者，用户和杜振川。</p>
+ * <p>远离那些自以为是，不听劝，愚钝之巅的初学者，用户和$A_Person_without_Socially_inept$。</p>
  */
 @Target({ElementType.TYPE, ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
@@ -59,9 +59,9 @@ public @interface NoJavaAPI {
 
         """;
     /**
-     * 这个版本的誓言，俗称“反 杜振川 誓言”
+     * 这个版本的誓言，俗称“反 $A_Clueless_Person$誓言”
      * <p>
-     * No Java API，我也想翻译成“反 杜振川 API”
+     * No Java API，我也想翻译成“反 $A_Clueless_Person$API”
      * <p>
      * 这才是我真正想要的誓言
      */
@@ -107,19 +107,19 @@ public @interface NoJavaAPI {
         We believe in No Java API, to have self-awareness, admit mistakes, and correct them.
         """;
     /**
-     * 我和杜振川急眼后，杜振川终于不来烦我了
+     * 我和$A_Person_without_Socially_inept$急眼后，$A_Person_without_Socially_inept$终于不来烦我了
      * 我终于消停了
      * <p>
-     * 幸好，杜振川退出IT行业了，转向专升本。
+     * 幸好，$A_Person_without_Socially_inept$退出IT行业了，转向专升本。
      * <p>
-     * 我身边还好大多数都是正常人，虽然不如杜振川知道的多，但是这些人不倔强，他们信任我，我也在能解决的前提下解决
+     * 我身边还好大多数都是正常人，虽然不如$A_Person_without_Socially_inept$知道的多，但是这些人不倔强，他们信任我，我也在能解决的前提下解决
      * <p>
-     * 我也在班里碰到一个高手，他进过工坊，了解的比我还多，最起码他知道Scala，他也做过游戏，这可能就是真正的高手，而不是知道的多，但全是错误的杜振川。
+     * 我也在班里碰到一个高手，他进过工坊，了解的比我还多，最起码他知道Scala，他也做过游戏，这可能就是真正的高手，而不是知道的多，但全是错误的$A_Person_without_Socially_inept$。
      */
-    String 杜振川圣经_Java_Home篇 = """
-        杜振川认为，安装JDK必须手动配置环境变量
+    String $A_Person_without_Socially_inept$圣经_Java_Home篇 = """
+        $A_Person_without_Socially_inept$认为，安装JDK必须手动配置环境变量
         我告诉他不用，Oracle JDK，Eclipse Adoptium的安装包，会自动帮你设置Java Home，直接安装即可。
-        杜振川想试试，顺利的安装了Oracle JDK。
+        $A_Person_without_Socially_inept$想试试，顺利的安装了Oracle JDK。
         我让他在命令提示符内，输入java -version
 
         得到了：
@@ -130,42 +130,42 @@ public @interface NoJavaAPI {
         ```
         多么完美的结果，太OK了
 
-        杜振川不干了，问我：我的JDK 11呢，你给我安装3个JDK干什么（java -version得到的三行输出）
+        $A_Person_without_Socially_inept$不干了，问我：我的JDK 11呢，你给我安装3个JDK干什么（java -version得到的三行输出）
         那好，你既然要JDK 11，那我卸了Oracle JDK，给你安装eclipse adoptium
-        杜振川也不干，不让我再安装了
+        $A_Person_without_Socially_inept$也不干，不让我再安装了
         他直接删了JDK 21的安装文件，导致再次输入java -version什么都得不到
-        杜振川得出了：安装JDK必须手动配置环境变量
+        $A_Person_without_Socially_inept$得出了：安装JDK必须手动配置环境变量
 
-        杜振川还问过我，JDK 21是否包含JDK 8？
+        $A_Person_without_Socially_inept$还问过我，JDK 21是否包含JDK 8？
         我的回答就是JDK 21就是JDK 21，他不包含JDK 8，它兼容JDK 1.8
 
-        杜振川最期待的java -version会得到什么呢？
+        $A_Person_without_Socially_inept$最期待的java -version会得到什么呢？
         既要有JDK 21，又要有JDK 11的结果
         Java的环境变量也只能指定一个JDK，输出的结果是只有21，没有11。他不干
 
         他把我气急眼的是，他安装的破解版的intellij idea ultimate启动不了，具体什么报错我也不知道，他赖我，我安装的Oracle JDK把他的idea搞坏了，他一直苦恼着，埋怨
 
-        杜振川还有一点，跟谭浩强的C语言程序设计那样，叭叭算法，算法最重要，算法天下第一
+        $A_Person_without_Socially_inept$还有一点，跟谭浩强的C语言程序设计那样，叭叭算法，算法最重要，算法天下第一
         你他妈跟人家屁后抄的代码，干嘛的都不知道，写了满屏的setter和getter
         还叭叭算法，算你妈了个逼
         你啥都写不出来，啥都搞不懂，研究这些算法鸡巴有啥用
-        杜振川脑袋锈透了，笨的要死，不灵通，脑思路也特奇葩
+        $A_Person_without_Socially_inept$脑袋锈透了，笨的要死，不灵通，脑思路也特奇葩
         Java至于把你难成那样吗？
 
         我明白，我跟他解释，他就仗着我不是高手，他就不听，不信我
         然后总是跟我说：毕竟我们是初学者嘛，得听高手的
         去你妈了个逼，操你妈，爱听不听
 
-        杜振川始终认为Minecraft的存在，就意味着Java擅长做游戏
+        $A_Person_without_Socially_inept$始终认为Minecraft的存在，就意味着Java擅长做游戏
 
-        杜振川不知道，也瞧不起Kotlin和Scala，他只知道Java
+        $A_Person_without_Socially_inept$不知道，也瞧不起Kotlin和Scala，他只知道Java
 
         """;
-    String 杜振川圣经_充电篇 = """
+    String $A_Person_without_Socially_inept$圣经_充电篇 = """
         1、手机充电器，67W，在5V电压下，最高3A电流。所以，不能使用该充电器给蓝牙耳机这样低功率设备充电，3A电流会让设备受不了。
         2、手机充电，到80%的电量就该停止充电，不能一直插着充电线充电，否则损伤电池
         """;
-    String 杜振川圣经_MSWindows篇 = """
+    String $A_Person_without_Socially_inept$圣经_MSWindows篇 = """
         3、永远不要装Windows 11，Windows 7是最好的，这个我不反驳。但是，他居然想给12代core处理器装Windows 7
         他不知道12代core处理器有大小核设计，注定系统最低是Windows 11
         也不知道Windows 10以下的操作系统对现代硬件的兼容性问题，有没有驱动都是问题
@@ -179,8 +179,8 @@ public @interface NoJavaAPI {
         3、最好依赖文件夹分开存放不同的数据，而不是分许多的分区，去归放不同的文件
 
 
-        有一次，杜振川的电脑，不识别拓展坞的网卡模块，网卡自己变成了CD驱动器，里面刚好有一个安装程序，吸引着你去点击它
-        但杜振川，就不点它，理由是Realtek是造声卡的，它是声卡驱动
+        有一次，$A_Person_without_Socially_inept$的电脑，不识别拓展坞的网卡模块，网卡自己变成了CD驱动器，里面刚好有一个安装程序，吸引着你去点击它
+        但$A_Person_without_Socially_inept$，就不点它，理由是Realtek是造声卡的，它是声卡驱动
         他就在网上，B站上搜索电脑不识别拓展坞的网卡的原因
         他也不会搜，也不会提炼关键字
         这些教程，无一例外，前提是在 控制面板/网络和 Internet/网络和共享中心，点击更改适配器设置，找到该适配器，去整乱七八糟的设置
@@ -194,7 +194,7 @@ public @interface NoJavaAPI {
 
     String SomethingYouWantSay();
 
-    String 杜振川 = """
+    String $A_Clueless_Person$ = """
         一个油腻肥差的书呆子，看着窝窝囊囊。吃饭使劲吧唧。
 
         这种人油盐不进，而且愿意指指点点，啥都评论，说的话自己都不觉得多刺耳。
@@ -216,5 +216,11 @@ public @interface NoJavaAPI {
         沉默是金，不要理会他，让他后果自负。
         而且，不要让他对自己产生副作用。他既不爱惜关系，也不爱惜别人的东西，而且，他蹩脚的用着别人的东西，他不心疼，我看着心疼死了，暴殄天物。他也虐待他自己的东西。
         永远找明白人说话，那才痛快。
+        """;
+
+    String others = """
+        这种不懂为人处事，人情世故的人，其实还好，不会背地使坏，欺负，报复等
+        其实，还有彻底没有素质，无论内心还是体表都肮脏恶臭，勾心斗角，以大欺小，霸凌，耍流氓，神经病
+        可以囊括我在高中时所遇见的大部分人
         """;
 }

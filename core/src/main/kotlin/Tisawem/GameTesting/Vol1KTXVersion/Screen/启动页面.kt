@@ -1,7 +1,8 @@
 package Tisawem.GameTesting.Vol1KTXVersion.Screen
 
 import Tisawem.GameTesting.Vol1KTX.Screen.MainMenu
-import Tisawem.GameTesting.Vol1KTXVersion.该项目通用的屏幕
+import Tisawem.GameTesting.Vol1KTXVersion.CommonScreen
+
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.InputAdapter
@@ -14,17 +15,16 @@ import com.badlogic.gdx.utils.ScreenUtils
 import ktx.app.KtxGame
 import ktx.app.KtxScreen
 
-class 启动页面(override val game: KtxGame<KtxScreen>) : 该项目通用的屏幕() {
+class 启动页面(override val game: KtxGame<KtxScreen>) : CommonScreen() {
 
-    override val 视口高: Float
-        get() = 600f
+
     private val ktxLogo = Sprite(Texture("logo.png")).apply {
         setScale(0.75f)
-        setPosition((视口宽 - width) / 2, (视口高 - height) / 2)
+        setPosition((viewportWidth - width) / 2, (viewportHeight - height) / 2)
 
     }
     private val 启动界面 = Sprite(Texture("背景/启动界面.png")).apply {
-        setSize(视口宽, 视口高)
+        setSize(viewportWidth, viewportHeight)
 
 
     }
@@ -34,7 +34,7 @@ class 启动页面(override val game: KtxGame<KtxScreen>) : 该项目通用的�
         data.setScale(3f)
     }
 
-    override val 全局素材管理器 = AssetManager().apply {
+    override val assetManager = AssetManager().apply {
         load("背景/mainmenuTouhou.png", Texture::class.java)
         load("button/startbutton.png", Texture::class.java)
 
@@ -61,17 +61,20 @@ class 启动页面(override val game: KtxGame<KtxScreen>) : 该项目通用的�
         load("人物/灵梦/左移/灵梦0003.png", Texture::class.java)
         load("人物/灵梦/左移/灵梦0004.png", Texture::class.java)
         load("人物/灵梦/左移/灵梦0005.png", Texture::class.java)
-        load("人物/灵梦/左移/灵梦00015.png", Texture::class.java)
+
+        load("其他/阴阳玉1.png", Texture::class.java)
+
+
     }
 
     init {
         Gdx.input.inputProcessor = object : InputAdapter() {
             override fun keyDown(keycode: Int): Boolean {
-                if (全局素材管理器.isFinished) {
+                if (assetManager.isFinished) {
                     Gdx.input.inputProcessor = null
                     dispose()
 
-                    replaceScreen(this@启动页面, MainMenu(game, 全局素材管理器))
+                    replaceScreen(this@启动页面, MainMenu(game, assetManager))
                 }
                 return true
             }
@@ -101,13 +104,13 @@ class 启动页面(override val game: KtxGame<KtxScreen>) : 该项目通用的�
         // 绘制背景和 logo
         启动界面.draw(batch)
         ktxLogo.draw(batch)
-        if (全局素材管理器.isFinished) {
+        if (assetManager.isFinished) {
             font.draw(batch, "100", 630f, 500f)
             font.draw(batch, "Hit Any Key", 500f, 400f)
 
 
         } else {
-            font.draw(batch, (全局素材管理器.progress * 100).toString(), 630f, 500f)
+            font.draw(batch, (assetManager.progress * 100).toString(), 630f, 500f)
 
         }
 
@@ -115,12 +118,12 @@ class 启动页面(override val game: KtxGame<KtxScreen>) : 该项目通用的�
         batch.end()
 
         //需要调用该指令，才会加载，否则一直不加载
-        全局素材管理器.update()
+        assetManager.update()
 
     }
 
     override fun resize(width: Int, height: Int) {
-        视口.update(width, height)
+        viewport.update(width, height)
     }
 
 
