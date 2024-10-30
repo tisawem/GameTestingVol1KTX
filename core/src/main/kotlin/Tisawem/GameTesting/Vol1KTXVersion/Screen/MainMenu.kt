@@ -1,7 +1,6 @@
-package Tisawem.GameTesting.Vol1KTX.Screen
+package Tisawem.GameTesting.Vol1KTXVersion.Screen
 
 import Tisawem.GameTesting.Vol1KTXVersion.CommonScreen
-import Tisawem.GameTesting.Vol1KTXVersion.Screen.Stage1
 
 import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.audio.Music
