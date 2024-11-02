@@ -13,7 +13,7 @@ fun main() {
     if (StartupHelper.startNewJvmIfRequired())
         return
     try {
-        Lwjgl3Application(Main(), Lwjgl3ApplicationConfiguration().apply {
+        Lwjgl3Application(Main, Lwjgl3ApplicationConfiguration().apply {
             setTitle("GameTestingVol1KTXVersion")
             setWindowedMode(800, 600)
             setWindowIcon(*(arrayOf(128, 64, 32, 16).map { "libgdx$it.png" }.toTypedArray()))

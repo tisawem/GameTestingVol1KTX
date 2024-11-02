@@ -1,12 +1,11 @@
 package Tisawem.GameTesting.Vol1KTXVersion
 
-import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.physics.box2d.*
 import com.badlogic.gdx.scenes.scene2d.ui.Image
 
 abstract class PhysicsActor(
-    open val assetManager: AssetManager,
+
     open val worldSize: Vector2
 ) : Image() {
     protected var body: Body? = null

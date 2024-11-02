@@ -1,23 +1,22 @@
 package Tisawem.GameTesting.Vol1KTXVersion.Character
 
+import Tisawem.GameTesting.Vol1KTXVersion.Main.全局资源管理器
 import Tisawem.GameTesting.Vol1KTXVersion.PhysicsActor
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
-import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.scenes.scene2d.InputEvent
 import com.badlogic.gdx.scenes.scene2d.InputListener
-
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable
 import com.badlogic.gdx.utils.Array
 
 
 class HakureiReimu(
-    override val assetManager: AssetManager,
+
     override val worldSize: Vector2
-) : PhysicsActor(assetManager, worldSize) {
+) : PhysicsActor(worldSize) {
 
     companion object {
         private const val NORMAL_MOVING_SPEED = 15f
@@ -32,18 +31,18 @@ class HakureiReimu(
     //博丽灵梦的动画帧
     private val rightMoveFrames = Array<TextureRegionDrawable>().apply {
         for (i in 0..5) {
-            add(TextureRegionDrawable(assetManager["人物/灵梦/右移/灵梦000${i}.png", Texture::class.java]))
+            add(TextureRegionDrawable(全局资源管理器["人物/灵梦/右移/灵梦000${i}.png", Texture::class.java]))
         }
         for (i in 4 downTo 1) {
-            add(TextureRegionDrawable(assetManager["人物/灵梦/右移/灵梦000${i}.png", Texture::class.java]))
+            add(TextureRegionDrawable(全局资源管理器["人物/灵梦/右移/灵梦000${i}.png", Texture::class.java]))
         }
     }
     private val leftMoveFrames = Array<TextureRegionDrawable>().apply {
         for (i in 0..5) {
-            add(TextureRegionDrawable(assetManager["人物/灵梦/左移/灵梦000${i}.png", Texture::class.java]))
+            add(TextureRegionDrawable(全局资源管理器["人物/灵梦/左移/灵梦000${i}.png", Texture::class.java]))
         }
         for (i in 4 downTo 1) {
-            add(TextureRegionDrawable(assetManager["人物/灵梦/左移/灵梦000${i}.png", Texture::class.java]))
+            add(TextureRegionDrawable(全局资源管理器["人物/灵梦/左移/灵梦000${i}.png", Texture::class.java]))
         }
     }
 

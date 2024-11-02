@@ -40,12 +40,12 @@ class ErrorScreen(val 报错内容: String) : ApplicationAdapter() {
         backgroundImage = Texture("背景/stage1Background.png")
         batch = SpriteBatch()
 
-        generator = FreeTypeFontGenerator(Gdx.files.internal("SourceHanSerifSC-Light.otf"))
+        generator = FreeTypeFontGenerator(Gdx.files.internal("SourceHanSansSC-Regular.otf"))
         val parameter = FreeTypeFontParameter().apply {
             characters = "程序出错，现在可以关闭该程序了。\n$报错内容"
             size = 24
             borderColor = Color.BROWN
-            borderWidth = 1f
+            borderWidth = 2f
         }
 
         font = generator.generateFont(parameter)

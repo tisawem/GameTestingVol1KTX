@@ -4,19 +4,17 @@ package Tisawem.GameTesting.Vol1KTXVersion.Screen
 import Tisawem.GameTesting.Vol1KTXVersion.Character.HakureiReimu
 import Tisawem.GameTesting.Vol1KTXVersion.Character.阴阳玉
 import Tisawem.GameTesting.Vol1KTXVersion.CommonScreen
-import com.badlogic.gdx.assets.AssetManager
+import Tisawem.GameTesting.Vol1KTXVersion.Main.全局资源管理器
+import Tisawem.GameTesting.Vol1KTXVersion.实用工具.loadMusic
+import Tisawem.GameTesting.Vol1KTXVersion.实用工具.loadTexture
 import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer
 import com.badlogic.gdx.physics.box2d.World
 import com.badlogic.gdx.scenes.scene2d.ui.Image
-import ktx.app.KtxGame
-import ktx.app.KtxScreen
 
-class Stage1(
-    override val game: KtxGame<KtxScreen>, override val assetManager: AssetManager
-) : CommonScreen() {
+class Stage1 : CommonScreen() {
     //世界和视口
     override val viewportWidth: Float
         get() = 8f
@@ -38,13 +36,35 @@ class Stage1(
     // Box2D 世界的缩放比例，用于渲染调试器
     private val cameraScale = 1f
 
+    init {
+        全局资源管理器.apply {
+
+//stage1所需资源
+            loadTexture("背景/作战背景1.png")
+            loadTexture("人物/灵梦/右移/灵梦0000.png")
+            loadTexture("人物/灵梦/右移/灵梦0001.png")
+            loadTexture("人物/灵梦/右移/灵梦0002.png")
+            loadTexture("人物/灵梦/右移/灵梦0003.png")
+            loadTexture("人物/灵梦/右移/灵梦0004.png")
+            loadTexture("人物/灵梦/右移/灵梦0005.png")
+            loadTexture("人物/灵梦/左移/灵梦0000.png")
+            loadTexture("人物/灵梦/左移/灵梦0001.png")
+            loadTexture("人物/灵梦/左移/灵梦0002.png")
+            loadTexture("人物/灵梦/左移/灵梦0003.png")
+            loadTexture("人物/灵梦/左移/灵梦0004.png")
+            loadTexture("人物/灵梦/左移/灵梦0005.png")
+            loadTexture("其他/阴阳玉1.png")
+            loadMusic("音乐/th01_02.mp3")
+            finishLoading()
+        }
+    }
 
     //Actor
-    private val reimu = HakureiReimu(assetManager, Vector2(worldWidth, worldHeight))
-    private val 阴阳玉 = 阴阳玉(assetManager, Vector2(worldWidth, worldHeight))
+    private val reimu = HakureiReimu(Vector2(worldWidth, worldHeight))
+    private val 阴阳玉 = 阴阳玉(Vector2(worldWidth, worldHeight))
 
     //音乐
-    private val musicTrack: Music = assetManager["音乐/th01_02.mp3", Music::class.java].apply {
+    private val musicTrack: Music = 全局资源管理器["音乐/th01_02.mp3", Music::class.java].apply {
         isLooping = true
         play()
     }
@@ -54,7 +74,7 @@ class Stage1(
         // 初始化舞台
         stage.apply {
             // 添加背景
-            addActor(Image(assetManager.get("背景/作战背景1.png", Texture::class.java)).apply {
+            addActor(Image(全局资源管理器.get("背景/作战背景1.png", Texture::class.java)).apply {
                 setSize(worldWidth, worldHeight)
             })
             // 添加角色
@@ -118,7 +138,7 @@ class Stage1(
     override fun dispose() {
         super.dispose()
         musicTrack.stop()
-        assetManager.unload("音乐/th01_02.mp3")
+        全局资源管理器.unload("音乐/th01_02.mp3")
         box2DWorld.dispose()
         debugRenderer.dispose()
     }

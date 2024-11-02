@@ -2,19 +2,16 @@ package Tisawem.GameTesting.Vol1KTXVersion
 
 
 import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.viewport.FitViewport
-import ktx.app.KtxGame
 import ktx.app.KtxScreen
+import ktx.assets.disposeSafely
 import ktx.graphics.center
 
 
 abstract class CommonScreen : KtxScreen {
-    abstract val game: KtxGame<KtxScreen>
-    abstract val assetManager: AssetManager
 
     open val viewportWidth = 800f
     open val viewportHeight = 600f
@@ -47,17 +44,17 @@ abstract class CommonScreen : KtxScreen {
     }
 
     override fun dispose() {
-        batch.dispose()
-        stage.dispose()
+        batch.disposeSafely()
+        stage.disposeSafely()
     }
 
     inline fun <reified T : KtxScreen, reified U : KtxScreen> replaceScreen(currentScreen: T, nextScreen: U) {
-        if (game.containsScreen<T>()) {
-            game.removeScreen<T>()
+        if (Main.containsScreen<T>()) {
+            Main.removeScreen<T>()
         }
-        if (!game.containsScreen<U>()) {
-            game.addScreen(nextScreen)
+        if (!Main.containsScreen<U>()) {
+            Main.addScreen(nextScreen)
         }
-        game.setScreen<U>()
+        Main.setScreen<U>()
     }
 }
